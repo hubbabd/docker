@@ -1,4 +1,4 @@
-FROM python:3.6-slim
+FROM hubbabt/python
 
 # Never prompts the user for choices on installation/configuration of packages
 ENV DEBIAN_FRONTEND noninteractive
@@ -72,4 +72,4 @@ EXPOSE 8080 5555 8793
 
 USER airflow
 WORKDIR ${AIRFLOW_HOME}
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["param-inject","/entrypoint.sh"]
