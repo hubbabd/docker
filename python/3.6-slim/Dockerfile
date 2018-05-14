@@ -7,5 +7,7 @@ RUN apt-get update && \
 RUN curl -L -o /usr/local/bin/param-inject https://github.com/rbi13/aws-param-inject/releases/download/0.0.2/aws-param-inject-linux-amd64 && \
     chmod +x /usr/local/bin/param-inject
 
+COPY logging.conf /etc/python/logging.conf
+
 ENTRYPOINT ["param-inject"]
 CMD ["echo","no command specified"]
