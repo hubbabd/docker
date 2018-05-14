@@ -7,9 +7,9 @@ RUN apt-get update && \
 RUN curl -L -o /usr/local/bin/param-inject https://github.com/rbi13/aws-param-inject/releases/download/0.0.2/aws-param-inject-linux-amd64 && \
     chmod +x /usr/local/bin/param-inject
 
-ENV LABS_PYTHON_LOGGIN_CONFIG_URL=/etc/python/logging.conf
+ENV LABS_PYTHON_LOGGING_CONFIG_URL=/etc/python/logging.conf
 
-COPY logging.conf ${LABS_PYTHON_LOGGIN_CONFIG_URL}
+COPY logging.conf ${LABS_PYTHON_LOGGING_CONFIG_URL}
 
 ENTRYPOINT ["param-inject"]
 CMD ["echo","no command specified"]
