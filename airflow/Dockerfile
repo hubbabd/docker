@@ -52,7 +52,8 @@ RUN set -ex \
     && pip install ndg-httpsclient \
     && pip install pyasn1 \
     && pip install "apache-airflow[async, devel, celery, crypto, password, postgres, s3]"==$AIRFLOW_VERSION \
-    && pip install sqlalchemy<1.2 \
+    && pip install sqlalchemy==1.1.16 \
+#    && pip install flask-admin==1.5.1 \
     && pip install celery[redis]==4.0.2 \
     && apt-get purge --auto-remove -yqq $buildDeps \
     && apt-get clean \
