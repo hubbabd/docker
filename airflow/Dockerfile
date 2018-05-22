@@ -63,8 +63,8 @@ RUN set -ex \
         /usr/share/doc \
         /usr/share/doc-base
 
-COPY entrypoint.sh /entrypoint.sh
-COPY airflow.cfg ${AIRFLOW_HOME}/airflow.cfg
+COPY defaults/entrypoint.sh /entrypoint.sh
+COPY defaults/airflow.cfg ${AIRFLOW_HOME}/airflow.cfg
 
 RUN chown -R airflow: ${AIRFLOW_HOME}
 
