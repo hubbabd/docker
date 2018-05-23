@@ -52,7 +52,8 @@ RUN set -ex \
     && pip install ndg-httpsclient \
     && pip install pyasn1 \
     && pip install "apache-airflow[async, devel, celery, crypto, password, postgres, s3]"==$AIRFLOW_VERSION \
-    && pip install celery[redis]==4.0.2 \
+    && pip install sqlalchemy==1.1.16 \
+    && pip install celery[redis]==4.1.1 \
     && apt-get purge --auto-remove -yqq $buildDeps \
     && apt-get clean \
     && rm -rf \
@@ -63,8 +64,8 @@ RUN set -ex \
         /usr/share/doc \
         /usr/share/doc-base
 
-COPY entrypoint.sh /entrypoint.sh
-COPY airflow.cfg ${AIRFLOW_HOME}/airflow.cfg
+COPY defaults/entrypoint.sh /entrypoint.sh
+COPY defaults/airflow.cfg ${AIRFLOW_HOME}/airflow.cfg
 
 RUN chown -R airflow: ${AIRFLOW_HOME}
 
